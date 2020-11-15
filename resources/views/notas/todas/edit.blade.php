@@ -9,10 +9,10 @@
   
  <div class="card text-center mx-auto border-success" style="max-width: 350px">
     <div class="card-header">
-      <input type="text" name="titulo" class="form-control" value="{{$nota->titulo}}">
+      <input maxlength="90" type="text" name="titulo" class="form-control" value="{{$nota->titulo}}">
     </div>
     <div class="card-body">
-     <textarea name="texto" class="form-control" cols="30" rows="6">{{$nota->texto}}</textarea>
+     <textarea maxlength="355" name="texto" class="form-control" cols="30" rows="6">{{$nota->texto}}</textarea>
     </div>
     <div class="card-footer text-muted small">
        <p>FECHA DE ULTIMA MODIFICACION:  {{$nota->updated_at}}</p>
