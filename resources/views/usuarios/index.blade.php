@@ -14,7 +14,7 @@
 <div class="container mb-3">
   <h1 class="text-center mb-5 mt-3">USUARIOS REGISTRADOS EN LA BASE DE DATOS</h1>
   <a href="usuarios/create"><button type="button" class="btn btn-secondary mb-3">AGREGAR USUARIO</button></a>
-  <form class="form-inline ml-3 float-right">
+  <form class="form-inline ml-3 ">
     <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search"
             aria-label="Search">
@@ -32,7 +32,7 @@
     </div>
  @endif
 </h6>
-  <div class="table-wrapper-scroll-y my-custom-scrollbar" id="prueba">
+  <div class="table-wrapper-scroll-y my-custom-scrollbar " id="prueba">
     <table class="table table-bordered table-striped mb-0 table-hover">
         <thead class="bg-dark">
           <tr>

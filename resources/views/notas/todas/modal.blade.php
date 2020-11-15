@@ -20,11 +20,13 @@
         <form>
           <div class="form-group">
             <label for="recipient-name"  class="col-form-label">TITULO:</label>
-            <input type="text" class="form-control" name="titulo" id="recipient-name">
+            <input maxlength="90" type="text" class="form-control" name="titulo" id="recipient-name">
+            <center><small class="text-center" style="color: red">MAXIMO 90 LETRAS</small></center>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">TEXTO:</label>
-            <textarea class="form-control" name="texto" id="message-text"></textarea>
+            <textarea maxlength="355" class="form-control" name="texto" id="message-text"></textarea>
+            <center><small class="text-center" style="color: red">MAXIMO 355 LETRAS</small></center>
           </div>
         </form>
       </div>
