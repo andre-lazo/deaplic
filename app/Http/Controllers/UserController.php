@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserFormRequest;
 use App\Http\Requests\UserEditFormRequest;
 use App\Models\User;
+use App\Models\role;
 
 class UserController extends Controller
 {
@@ -25,7 +26,9 @@ class UserController extends Controller
         
         if($request){
             $query=trim($request->get('search'));
+            $roles=Role::all();
             $users=User::where('name','LIKE','%'.$query.'%')->orderby('id','asc')
+            
             ->simplepaginate(5);
             return view('usuarios.index',['users'=>$users,'search'=>$query]);
         }
@@ -48,7 +51,7 @@ return '<img src="imagenes/'.$user->imagen.'" width="50" height="50"/>';
      */
     public function create()
     {
-     return view('usuarios.create');
+     return view('usuarios.create',['roles'=>Role::all()]);
     }
 
     /**
@@ -92,7 +95,7 @@ return '<img src="imagenes/'.$user->imagen.'" width="50" height="50"/>';
      */
     public function edit($id)
     {
-        return view('usuarios.edit',['user'=> User::findOrFail($id)]); 
+        return view('usuarios.edit',['user'=> User::findOrFail($id)]);
     }
 
     /**

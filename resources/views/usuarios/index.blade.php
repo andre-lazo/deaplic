@@ -13,7 +13,11 @@
 @section('content')
 <div class="container mb-3">
   <h1 class="text-center mb-5 mt-3">USUARIOS REGISTRADOS EN LA BASE DE DATOS</h1>
-  <a href="usuarios/create"><button type="button" class="btn btn-secondary mb-3">AGREGAR USUARIO</button></a>
+  @can('ver_reg')
+    
+ 
+  <a href="{{route('usuarios.create')}}"><button type="button" class="btn btn-secondary mb-3">AGREGAR USUARIO</button></a>
+  @endcan
   <form class="form-inline ml-3 ">
     <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search"
@@ -26,9 +30,9 @@
     </div>
 </form>
 <h6>
- @if ($search)
+ @if ($search ?? '')
  <div class="alert alert-primary">
-  Los resultados para tu busqueda '{{$search}}' son:
+  Los resultados para tu busqueda '{{$search ?? ''}}' son:
     </div>
  @endif
 </h6>
@@ -40,10 +44,11 @@
             <th scope="col" class="text-center">Nombre</th>
             <th scope="col" class="text-center">Email</th>
             <th scope="col" class="text-center">Imagen</th>
+            @can('ver_reg') 
             <th scope="col" class="text-center">Ver</th>
             <th scope="col" class="text-center">Modificar</th>
             <th scope="col" class="text-center">Eliminar</th>
-           
+           @endcan
           </tr>
         </thead>
         <tbody>
@@ -53,6 +58,7 @@
                 <td class="text-center">{{$user->name    }}</td>
                 <td class="text-center">{{$user->email   }}</td>
                 <td class="text-center"><img src="{{asset('/imagenes/'.$user->imagen)}}" alt="{{$user->imagen}}" height="50px" width="50px"></td>
+                @can('ver_reg') 
                 <td class="text-center"><a href="{{route('usuarios.show',$user->id)}}" class="btn btn-secondary"><i class="far fa-eye"></i> Ver</a></td>
                 <td class="text-center"> <a href="{{ route('usuarios.edit',$user->id) }}" class="btn btn-primary"><i class="far fa-edit"></i>  Modificar</a></td>
                 <td class="text-center"> 
@@ -62,6 +68,7 @@
                     <button type="submit"  class="btn btn-danger"><i class="far fa-trash-alt"></i>  Eliminar</button>
                   </form>
                 </td>
+                @endcan
               </tr>    
             @endforeach
          
